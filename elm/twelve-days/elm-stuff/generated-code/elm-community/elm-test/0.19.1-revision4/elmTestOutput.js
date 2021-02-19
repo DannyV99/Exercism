@@ -6374,7 +6374,7 @@ var $author$project$TwelveDays$numberTense = function (numbski) {
 		case 1:
 			return _Utils_Tuple2('first', 'a Partridge in a Pear Tree.');
 		case 2:
-			return _Utils_Tuple2('second', 'two Turtle Doves');
+			return _Utils_Tuple2('second', 'two Turtle Doves, and ');
 		case 3:
 			return _Utils_Tuple2('third', 'three French Hens');
 		case 4:
@@ -6409,11 +6409,17 @@ var $elm$core$List$singleton = function (value) {
 };
 var $author$project$TwelveDays$recite = F2(
 	function (start, stop) {
-		return $elm$core$List$singleton(
+		return (_Utils_eq(start, stop) && (start > 0)) ? $elm$core$List$singleton(
 			_Utils_ap(
 				$author$project$TwelveDays$beginning(
 					$author$project$TwelveDays$numberTense(start).a),
-				$author$project$TwelveDays$numberTense(start).b));
+				$author$project$TwelveDays$numberTense(stop).b)) : $elm$core$List$singleton(
+			_Utils_ap(
+				$author$project$TwelveDays$beginning(
+					$author$project$TwelveDays$numberTense(start).a),
+				_Utils_ap(
+					$author$project$TwelveDays$numberTense(stop).b,
+					$author$project$TwelveDays$numberTense(stop).b)));
 	});
 var $elm_explorations$test$Test$Internal$Skipped = function (a) {
 	return {$: 'Skipped', a: a};
@@ -6607,7 +6613,7 @@ var $author$project$Tests$tests = A2(
 						A2($author$project$TwelveDays$recite, 1, 12));
 				}))
 		]));
-var $author$project$Test$Generated$Main3517522084$main = A2(
+var $author$project$Test$Generated$Main4198848601$main = A2(
 	$author$project$Test$Runner$Node$run,
 	{
 		globs: _List_Nil,
@@ -6616,7 +6622,7 @@ var $author$project$Test$Generated$Main3517522084$main = A2(
 		processes: 4,
 		report: $author$project$Test$Reporter$Reporter$ConsoleReport($author$project$Console$Text$UseColor),
 		runs: $elm$core$Maybe$Nothing,
-		seed: 383597394716575
+		seed: 327099164654813
 	},
 	$elm_explorations$test$Test$concat(
 		_List_fromArray(
@@ -6627,10 +6633,10 @@ var $author$project$Test$Generated$Main3517522084$main = A2(
 				_List_fromArray(
 					[$author$project$Tests$tests]))
 			])));
-_Platform_export({'Test':{'Generated':{'Main3517522084':{'init':$author$project$Test$Generated$Main3517522084$main($elm$json$Json$Decode$int)(0)}}}});}(this));
+_Platform_export({'Test':{'Generated':{'Main4198848601':{'init':$author$project$Test$Generated$Main4198848601$main($elm$json$Json$Decode$int)(0)}}}});}(this));
 return this.Elm;
 })({});
-var pipeFilename = "/tmp/elm_test-9940.sock";
+var pipeFilename = "/tmp/elm_test-54846.sock";
 // Make sure necessary things are defined.
 if (typeof Elm === 'undefined') {
   throw 'test runner config error: Elm is not defined. Make sure you provide a file compiled by Elm!';

@@ -3,11 +3,11 @@ module TwelveDays exposing (recite)
 
 recite : Int -> Int -> List String
 recite start stop =
-    if start == stop && start < 1 then
-        List.singleton (beginning (Tuple.first (numberTense start)) ++ Tuple.second (numberTense start))
+    if start == stop && start > 0 then
+        List.singleton (beginning (Tuple.first (numberTense start)) ++ Tuple.second (numberTense stop))
 
     else
-        List.singleton (beginning (Tuple.first (numberTense start)) ++ Tuple.second (numberTense start))
+        List.singleton (beginning (Tuple.first (numberTense start)) ++ Tuple.second (numberTense stop) ++ Tuple.second (numberTense stop))
 
 
 beginning numberOfDay =
@@ -20,7 +20,7 @@ numberTense numbski =
             ( "first", "a Partridge in a Pear Tree." )
 
         2 ->
-            ( "second", "two Turtle Doves" )
+            ( "second", "two Turtle Doves, and " )
 
         3 ->
             ( "third", "three French Hens" )
